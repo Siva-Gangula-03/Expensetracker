@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pocket Ledger | Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div><p class="eyebrow">PERSONAL FINANCE</p><h1>Pocket Ledger</h1><p class="subtitle">A clearer view of where your money goes.</p></div>
+      <div class="logo" aria-hidden="true">₹</div>
+    </header>
+    <section class="balance-card">
+      <p>Total expenses</p><strong id="total">₹0.00</strong><span id="expense-count">0 transactions</span>
+    </section>
+    <section class="content-grid">
+      <form id="expense-form" class="card">
+        <h2>Add an expense</h2>
+        <label for="expense-name">Description</label>
+        <input id="expense-name" name="name" placeholder="e.g. Groceries" maxlength="80" required>
+        <div class="two-col">
+          <div><label for="expense-amount">Amount (₹)</label><input id="expense-amount" name="amount" type="number" min="0.01" step="0.01" placeholder="250" required></div>
+          <div><label for="expense-category">Category</label><select id="expense-category" name="category"><option>Food</option><option>Travel</option><option>Bills</option><option>Shopping</option><option>Education</option><option>Other</option></select></div>
+        </div>
+        <label for="expense-date">Date</label><input id="expense-date" name="date" type="date" required>
+        <p id="form-error" class="error" role="alert"></p>
+        <button class="primary" type="submit">Add expense</button>
+      </form>
+      <section class="card transactions">
+        <div class="list-head"><h2>Recent expenses</h2><button id="clear-all" class="clear" type="button">Clear all</button></div>
+        <div id="expense-list" class="expense-list"></div>
+        <p id="empty-state" class="empty">No expenses yet. Add your first one.</p>
+      </section>
+    </section>
+    <footer>Data is saved locally in this browser.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
